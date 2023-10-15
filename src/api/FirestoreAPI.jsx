@@ -23,7 +23,7 @@ let connectionRef = collection(firestore, "connections");
 export const postStatus = (object) => {
   addDoc(postsRef, object)
     .then(() => {
-      toast.success("Post has been added successfully");
+      toast.success("Публікацію успішно додано");
     })
     .catch((err) => {
       console.log(err);
@@ -68,7 +68,7 @@ export const editProfile = (userID, payload) => {
 
   updateDoc(userToEdit, payload)
     .then(() => {
-      toast.success("Profile has been updated successfully");
+      toast.success("Профіль успішно оновлено");
     })
     .catch((err) => {
       console.log(err);
@@ -180,7 +180,7 @@ export const updatePost = (id, status, postImage) => {
   let docToUpdate = doc(postsRef, id);
   try {
     updateDoc(docToUpdate, { status, postImage });
-    toast.success("Post has been updated!");
+    toast.success("Публікацію оновлено!");
   } catch (err) {
     console.log(err);
   }
@@ -190,7 +190,7 @@ export const deletePost = (id) => {
   let docToDelete = doc(postsRef, id);
   try {
     deleteDoc(docToDelete);
-    toast.success("Post has been Deleted!");
+    toast.success("Публікацію видалено!");
   } catch (err) {
     console.log(err);
   }
@@ -202,7 +202,7 @@ export const addConnection = (userId, targetId) => {
 
     setDoc(connectionToAdd, { userId, targetId });
 
-    toast.success("Connection Added!");
+    toast.success("Зв'язок встановлено!");
   } catch (err) {
     console.log(err);
   }

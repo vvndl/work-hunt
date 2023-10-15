@@ -128,7 +128,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
 
         {currentUser.skills || currentProfile?.skills ? (
           <p className="skills">
-            <span className="skill-label">Skills</span>:&nbsp;
+            <span className="skill-label">Навички</span>:&nbsp;
             {Object.values(currentProfile).length === 0
               ? currentUser.skills
               : currentProfile?.skills}

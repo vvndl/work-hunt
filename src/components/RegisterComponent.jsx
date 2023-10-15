@@ -13,7 +13,7 @@ export default function RegisterComponent() {
   const register = async () => {
     try {
       let res = await RegisterAPI(credentails.email, credentails.password);
-      toast.success("Account Created!");
+      toast.success("Акаунт створено!");
       postUserData({
         userID: getUniqueID(),
         name: credentails.name,
@@ -33,7 +33,9 @@ export default function RegisterComponent() {
       <img src={Logotype} className="workhuntLogo" />
 
       <div className="login-wrapper-inner">
-        <h1 className="heading">Make the most of your professional life</h1>
+        <h1 className="heading">
+          Використовуйте своє професійне життя на повну
+        </h1>
 
         <div className="auth-inputs">
           <input
@@ -42,7 +44,7 @@ export default function RegisterComponent() {
             }
             type="text"
             className="common-input"
-            placeholder="Your Name"
+            placeholder="Ваше ім'я"
           />
           <input
             onChange={(event) =>
@@ -50,7 +52,7 @@ export default function RegisterComponent() {
             }
             type="email"
             className="common-input"
-            placeholder="Email or phone number"
+            placeholder="Електронна пошта або номер телефону"
           />
           <input
             onChange={(event) =>
@@ -58,19 +60,19 @@ export default function RegisterComponent() {
             }
             type="password"
             className="common-input"
-            placeholder="Password (6 or more characters)"
+            placeholder="Пароль (6 або більше символів)"
           />
         </div>
         <button onClick={register} className="login-btn">
-          Agree & Join
+          Приєднатися
         </button>
       </div>
-      <hr class="hr-text" data-content="or" />
+      <hr class="hr-text" data-content="або" />
       <div className="google-btn-container">
         <p className="go-to-signup">
-          Already on WORK-HUNT?{" "}
+          Вже на WORK-HUNT?{" "}
           <span className="join-now" onClick={() => navigate("/")}>
-            Sign in
+            Увійти
           </span>
         </p>
       </div>

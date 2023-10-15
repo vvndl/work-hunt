@@ -22,7 +22,7 @@ const ModalComponent = ({
   return (
     <>
       <Modal
-        title="Create a post"
+        title="Створіть публікацію"
         centered
         open={modalOpen}
         onOk={() => {
@@ -44,7 +44,7 @@ const ModalComponent = ({
             type="primary"
             disabled={status.length > 0 ? false : true}
           >
-            {isEdit ? "Update" : "Post"}
+            {isEdit ? "Оновити" : "Пост"}
           </Button>,
         ]}
       >
@@ -53,7 +53,7 @@ const ModalComponent = ({
             className="modal-input"
             theme="snow"
             value={status}
-            placeholder="Share Something Useful.."
+            placeholder="Поділіться чимось корисним..."
             onChange={setStatus}
           />
           {progress === 0 || progress === 100 ? (

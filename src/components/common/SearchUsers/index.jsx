@@ -6,7 +6,7 @@ export default function SearchUsers({ setIsSearch, setSearchInput }) {
   return (
     <div className="search-users">
       <input
-        placeholder="Search Users.."
+        placeholder="Пошук користувачів.."
         onChange={(event) => setSearchInput(event.target.value)}
       />
 

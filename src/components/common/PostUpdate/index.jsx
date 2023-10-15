@@ -67,7 +67,7 @@ export default function PostStatus({ currentUser }) {
             setIsEdit(false);
           }}
         >
-          Start a Post
+          Створіть публікацію
         </button>
       </div>
 

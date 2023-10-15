@@ -33,7 +33,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
   }, [userId, postId]);
   return (
     <div className="like-container">
-      <p>{likesCount} People Like this Post</p>
+      <p>{likesCount} Людям подобається цей пост</p>
       <div className="hr-line">
         <hr />
       </div>
@@ -45,7 +45,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
             <BsHandThumbsUp size={30} />
           )}
 
-          <p className={liked ? "blue" : "black"}>Like</p>
+          <p className={liked ? "blue" : "black"}>Лайк</p>
         </div>
         <div
           className="likes-comment-inner"
@@ -58,20 +58,20 @@ export default function LikeButton({ userId, postId, currentUser }) {
             />
           }
 
-          <p className={showCommentBox ? "blue" : "black"}>Comments</p>
+          <p className={showCommentBox ? "blue" : "black"}>Коментарі</p>
         </div>
       </div>
       {showCommentBox ? (
         <>
           <input
             onChange={getComment}
-            placeholder="Add a Comment"
+            placeholder="Додати коментар"
             className="comment-input"
             name="comment"
             value={comment}
           />
           <button className="add-comment-btn" onClick={addComment}>
-            Add Comment
+            Додати коментар
           </button>
 
           {comments.length > 0 ? (

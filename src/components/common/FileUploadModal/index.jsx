@@ -25,14 +25,14 @@ export default function FileUploadModal({
             type="primary"
             onClick={uploadImage}
           >
-            Upload Profile Picture
+            Завантажити фото профілю
           </Button>,
         ]}
       >
         <div className="image-upload-main">
           <p>{currentImage.name}</p>
           <label className="upload-btn" for="image-upload">
-            Add an Image
+            Додати зображення
           </label>
           {progress === 0 ? (
             <></>

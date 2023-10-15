@@ -22,83 +22,83 @@ export default function ProfileEdit({ onEdit, currentUser }) {
       </div>
 
       <div className="profile-edit-inputs">
-        <label>Name</label>
+        <label>Ім'я</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Name"
+          placeholder="Ім'я"
           name="name"
           value={editInputs.name}
         />
-        <label>Headline</label>
+        <label>Заголовок</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Headline"
+          placeholder="Заголовок"
           name="headline"
           value={editInputs.headline}
         />
-        <label>Country</label>
+        <label>Країна</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Country"
+          placeholder="Країна"
           name="country"
           value={editInputs.country}
         />
-        <label>City</label>
+        <label>Місто</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="City"
+          placeholder="Місто"
           name="city"
           value={editInputs.city}
         />
-        <label>Work place</label>
+        <label>Місце роботи</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Company"
+          placeholder="Місце роботи"
           name="company"
           value={editInputs.company}
         />
-        <label>Education</label>
+        <label>Освіта</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="College"
+          placeholder="Освіта"
           name="college"
           value={editInputs.college}
         />
-        <label>Website</label>
+        <label>Веб-сторінка</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Website"
+          placeholder="Веб-сторінка"
           name="website"
           value={editInputs.website}
         />
-        <label>About</label>
+        <label>Про</label>
         <textarea
-          placeholder="About Me"
+          placeholder="Про себе"
           className="common-textArea"
           onChange={getInput}
           rows={5}
           name="aboutMe"
           value={editInputs.aboutMe}
         />
-        <label>Skills</label>
+        <label>Навички</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Skills"
+          placeholder="Навички"
           name="skills"
           value={editInputs.skills}
         />
       </div>
       <div className="save-container">
         <button className="save-btn" onClick={updateProfileData}>
-          Save
+          Зберегти
         </button>
       </div>
     </div>

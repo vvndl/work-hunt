@@ -27,6 +27,6 @@ export default function ConnectionsComponent({ currentUser }) {
       })}
     </div>
   ) : (
-    <div className="connections-main">No Connections to Add!</div>
+    <div className="connections-main">Немає підключень для додавання!</div>
   );
 }

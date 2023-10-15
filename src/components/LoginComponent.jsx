@@ -12,12 +12,12 @@ export default function LoginComponent() {
   const login = async () => {
     try {
       let res = await LoginAPI(credentails.email, credentails.password);
-      toast.success("Sign In to WORK-HUNT!");
+      toast.success("Ласкаво просими у WORK-HUNT!");
       localStorage.setItem("userEmail", res.user.email);
       navigate("/home");
     } catch (err) {
       console.log(err);
-      toast.error("Please check your email or password");
+      toast.error("Будь ласка, перевірте свою електронну пошту або пароль");
     }
   };
 
@@ -29,8 +29,10 @@ export default function LoginComponent() {
     <div className="login-wrapper">
       <img src={Logotype} className="workhuntlogo" />
       <div className="login-wrapper-inner">
-        <h1 className="heading">Sign in</h1>
-        <p className="sub-heading">Stay updated on your professional world</p>
+        <h1 className="heading">Увійдіть в систему</h1>
+        <p className="sub-heading">
+          Будьте в курсі подій у вашому професійному світі
+        </p>
 
         <div className="auth-inputs">
           <input
@@ -39,7 +41,7 @@ export default function LoginComponent() {
             }
             type="email"
             className="common-input"
-            placeholder="Email or Phone"
+            placeholder="Електронна пошта або телефон"
           />
           <input
             onChange={(event) =>
@@ -47,21 +49,21 @@ export default function LoginComponent() {
             }
             type="password"
             className="common-input"
-            placeholder="Password"
+            placeholder="Пароль"
           />
         </div>
         <button onClick={login} className="login-btn">
-          Sign in
+          Увійти
         </button>
       </div>
-      <hr className="hr-text" data-content="or" />
+      <hr className="hr-text" data-content="або" />
       <div className="google-btn-container">
         <GoogleButton className="google-btn" onClick={googleSignIn} />
         <div className="google-btn-container">
           <p className="go-to-signup">
-            New to WORK-HUNT?{" "}
+            Ви вперше на WORK-HUNT?{" "}
             <span className="join-now" onClick={() => navigate("/register")}>
-              Join now
+              Приєднуйтеся зараз
             </span>
           </p>
         </div>
