@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { LoginAPI /*GoogleSignInAPI*/ } from "../api/AuthAPI";
-import GoogleButton from "react-google-button";
 import Logotype from "../assets/Logotype.png";
 import { useNavigate } from "react-router-dom";
 import "../Sass/LoginComponent.scss";

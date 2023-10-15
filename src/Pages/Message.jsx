@@ -7,6 +7,7 @@ import Main from "../components/common/Chat/Main";
 export default function Message({ currentUser }) {
   const [, setLoading] = useState(true);
   let navigate = useNavigate();
+
   useEffect(() => {
     onAuthStateChanged(
       auth,
@@ -18,7 +19,8 @@ export default function Message({ currentUser }) {
         }
       },
       [navigate]
-    ); // Add navigate to the dependency array
+    ); // Include 'navigate' in the dependency array
   }, []);
+
   return <Main currentUser={currentUser} />;
 }

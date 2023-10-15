@@ -38,28 +38,28 @@ export default function Topbar({ currentUser }) {
     });
   };
 
-  const handleSearch = () => {
-    if (searchInput !== "") {
-      let searched = users.filter((user) => {
-        return Object.values(user)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-
-      setFilteredUsers(searched);
-    } else {
-      setFilteredUsers(users);
-    }
-  };
-
   useEffect(() => {
+    const handleSearch = () => {
+      if (searchInput !== "") {
+        let searched = users.filter((user) => {
+          return Object.values(user)
+            .join("")
+            .toLowerCase()
+            .includes(searchInput.toLowerCase());
+        });
+
+        setFilteredUsers(searched);
+      } else {
+        setFilteredUsers(users);
+      }
+    };
+
     let debounced = setTimeout(() => {
       handleSearch();
     }, 1000);
 
     return () => clearTimeout(debounced);
-  }, [handleSearch, searchInput]);
+  }, [searchInput, users]);
 
   useEffect(() => {
     getAllUsers(setUsers);
