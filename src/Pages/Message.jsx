@@ -11,12 +11,12 @@ export default function Message({ currentUser }) {
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       if (!res?.accessToken) {
-        navigate("/");
+        navigate("/message");
       } else {
         setLoading(false);
       }
     });
-  }, []);
+  });
 
   return <Main currentUser={currentUser} />;
 }

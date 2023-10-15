@@ -15,7 +15,7 @@ export default function Connections({ currentUser }) {
         setLoading(false);
       }
     });
-  }, []);
+  });
 
   return <ConnectionsComponent currentUser={currentUser} />;
 }

@@ -7,15 +7,14 @@ import { auth } from "../firebaseConfig";
 export default function Login() {
   const [, setLoading] = useState(true);
   let navigate = useNavigate();
-
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
-      if (!res?.accessToken) {
-        navigate("/");
+      if (res?.accessToken) {
+        navigate("/home");
       } else {
         setLoading(false);
       }
     });
-  }, []);
+  });
   return <LoginComponent />;
 }
