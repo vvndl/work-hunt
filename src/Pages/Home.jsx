@@ -18,8 +18,8 @@ export default function Home({ currentUser }) {
           setLoading(false);
         }
       },
-      [navigate]
-    ); // Include 'navigate' in the dependency array
+      [navigate] // Include 'navigate' in the dependency array
+    );
   }, []);
 
   return <HomeComponent currentUser={currentUser} />;

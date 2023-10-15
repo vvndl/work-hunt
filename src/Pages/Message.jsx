@@ -18,8 +18,8 @@ export default function Message({ currentUser }) {
           setLoading(false);
         }
       },
-      [navigate]
-    ); // Include 'navigate' in the dependency array
+      [navigate] // Include 'navigate' in the dependency array
+    );
   }, []);
 
   return <Main currentUser={currentUser} />;
