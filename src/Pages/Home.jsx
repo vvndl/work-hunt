@@ -7,20 +7,14 @@ import { auth } from "../firebaseConfig";
 export default function Home({ currentUser }) {
   const [, setLoading] = useState(true);
   let navigate = useNavigate();
-
   useEffect(() => {
-    onAuthStateChanged(
-      auth,
-      (res) => {
-        if (!res?.accessToken) {
-          navigate("/");
-        } else {
-          setLoading(false);
-        }
-      },
-      [navigate] // Include 'navigate' in the dependency array
-    );
+    onAuthStateChanged(auth, (res) => {
+      if (!res?.accessToken) {
+        navigate("/");
+      } else {
+        setLoading(false);
+      }
+    });
   }, []);
-
   return <HomeComponent currentUser={currentUser} />;
 }
