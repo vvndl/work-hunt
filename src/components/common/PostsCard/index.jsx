@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 import { BsPencil, BsTrash } from "react-icons/bs";
 import {
   getCurrentUser,
@@ -47,7 +47,7 @@ export default function PostsCard({ posts, id, getEditData }) {
         )}
 
         <img
-          alt="profile-image"
+          alt=""
           className="profile-image"
           src={
             allUsers
@@ -77,7 +77,7 @@ export default function PostsCard({ posts, id, getEditData }) {
           onClick={() => setImageModal(true)}
           src={posts.postImage}
           className="post-image"
-          alt="post-image"
+          alt=""
         />
       ) : (
         <></>
@@ -104,7 +104,7 @@ export default function PostsCard({ posts, id, getEditData }) {
           onClick={() => setImageModal(true)}
           src={posts.postImage}
           className="post-image modal"
-          alt="post-image"
+          alt=""
         />
       </Modal>
     </div>

@@ -11,7 +11,7 @@ export default function ConnectedUsers({ user, getCurrentUser, currentUser }) {
     <></>
   ) : (
     <div className="grid-child">
-      <img src={user.imageLink} />
+      <img src={user.imageLink} alt="" />
       <p className="name">{user.name}</p>
       <p className="headline">{user.headline}</p>
 

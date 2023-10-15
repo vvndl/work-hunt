@@ -30,7 +30,7 @@ export default function RegisterComponent() {
 
   return (
     <div className="login-wrapper">
-      <img src={Logotype} className="workhuntLogo" />
+      <img src={Logotype} className="workhuntLogo" alt="" />
 
       <div className="login-wrapper-inner">
         <h1 className="heading">

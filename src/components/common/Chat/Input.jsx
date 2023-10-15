@@ -11,7 +11,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { firestore, storage } from "../../../firebaseConfig";
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import "../../../style.scss";
 

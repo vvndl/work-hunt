@@ -13,7 +13,6 @@ import {
 } from "firebase/firestore";
 import { toast } from "react-toastify";
 
-let dbRef = collection(firestore, "posts");
 let userRef = collection(firestore, "users");
 let postsRef = collection(firestore, "posts");
 let likeRef = collection(firestore, "likes");

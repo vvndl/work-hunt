@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebaseConfig";
 
 export default function Login() {
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   let navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {

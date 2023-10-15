@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LoginAPI, GoogleSignInAPI } from "../api/AuthAPI";
+import { LoginAPI /*GoogleSignInAPI*/ } from "../api/AuthAPI";
 import GoogleButton from "react-google-button";
 import Logotype from "../assets/Logotype.png";
 import { useNavigate } from "react-router-dom";
@@ -21,13 +21,14 @@ export default function LoginComponent() {
     }
   };
 
-  const googleSignIn = () => {
-    let response = GoogleSignInAPI();
-    navigate("/home");
-  };
+  // const googleSignIn = () => {
+  //   let response = GoogleSignInAPI();
+  //   navigate("/home");
+  // };
+
   return (
     <div className="login-wrapper">
-      <img src={Logotype} className="workhuntlogo" />
+      <img src={Logotype} className="workhuntlogo" alt="" />
       <div className="login-wrapper-inner">
         <h1 className="heading">Увійдіть в систему</h1>
         <p className="sub-heading">
@@ -58,7 +59,6 @@ export default function LoginComponent() {
       </div>
       <hr className="hr-text" data-content="або" />
       <div className="google-btn-container">
-        <GoogleButton className="google-btn" onClick={googleSignIn} />
         <div className="google-btn-container">
           <p className="go-to-signup">
             Ви вперше на WORK-HUNT?{" "}

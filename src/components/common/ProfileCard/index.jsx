@@ -36,7 +36,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
     if (location?.state?.email) {
       getSingleUser(setCurrentProfile, location?.state?.email);
     }
-  }, []);
+  }, [location?.state?.id, location?.state?.email]);
 
   return (
     <>
@@ -66,7 +66,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
                   ? currentUser.imageLink
                   : currentProfile?.imageLink
               }
-              alt="profile-image"
+              alt=""
             />
             <h3 className="userName">
               {Object.values(currentProfile).length === 0
@@ -92,6 +92,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
               <a
                 className="website"
                 target="_blank"
+                rel="noreferrer"
                 href={
                   Object.values(currentProfile).length === 0
                     ? `${currentUser.website}`

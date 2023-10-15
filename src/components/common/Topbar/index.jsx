@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Logotype from "../../../assets/Logotype.png";
-import user from "../../../assets/user.png";
 import SearchUsers from "../SearchUsers";
 import {
   AiOutlineHome,
@@ -60,7 +59,7 @@ export default function Topbar({ currentUser }) {
     }, 1000);
 
     return () => clearTimeout(debounced);
-  }, [searchInput]);
+  }, [handleSearch, searchInput]);
 
   useEffect(() => {
     getAllUsers(setUsers);
@@ -75,7 +74,7 @@ export default function Topbar({ currentUser }) {
         <></>
       )}
 
-      <img className="workhunt-logo" src={Logotype} />
+      <img className="workhunt-logo" src={Logotype} alt="" />
       {isSearch ? (
         <SearchUsers
           setIsSearch={setIsSearch}
@@ -123,7 +122,7 @@ export default function Topbar({ currentUser }) {
           ) : (
             filteredUsers.map((user) => (
               <div className="search-inner" onClick={() => openUser(user)}>
-                <img src={user.imageLink} />
+                <img src={user.imageLink} alt="" />
                 <p className="name">{user.name}</p>
               </div>
             ))

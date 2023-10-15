@@ -25,15 +25,15 @@ export const RegisterAPI = (email, password) => {
   }
 };
 
-export const GoogleSignInAPI = (email, password) => {
-  try {
-    let googleProvider = new GoogleAuthProvider();
-    let res = signInWithPopup(auth, googleProvider);
-    return res;
-  } catch (err) {
-    return err;
-  }
-};
+// export const GoogleSignInAPI = (email, password) => {
+//   try {
+//     let googleProvider = new GoogleAuthProvider();
+//     let res = signInWithPopup(auth, googleProvider);
+//     return res;
+//   } catch (err) {
+//     return err;
+//   }
+// };
 
 export const onLogout = () => {
   try {
