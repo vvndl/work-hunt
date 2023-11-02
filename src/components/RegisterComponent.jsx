@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import "../Sass/LoginComponent.scss";
 import { toast } from "react-toastify";
 import { getUniqueID } from "../helpers/getUniqueld";
+import { firestore } from "../firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function RegisterComponent() {
   let navigate = useNavigate();
@@ -14,11 +16,17 @@ export default function RegisterComponent() {
     try {
       let res = await RegisterAPI(credentails.email, credentails.password);
       toast.success("Акаунт створено!");
+      // The following line creates the document in the "users" collection.
+      // If you don't want to create it, you can remove this line.
+      // await setDoc(doc(firestore, "users", res.user.uid), {});
       postUserData({
         userID: getUniqueID(),
         name: credentails.name,
         email: credentails.email,
+        uid: res.user.uid,
+        displayName: credentails.name,
       });
+      await setDoc(doc(firestore, "userChats", res.user.uid), {});
 
       navigate("/home");
       localStorage.setItem("userEmail", res.user.email);

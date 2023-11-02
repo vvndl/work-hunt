@@ -11,7 +11,7 @@ export default function Message({ currentUser }) {
   useEffect(() => {
     onAuthStateChanged(auth, (res) => {
       if (!res?.accessToken) {
-        navigate("/message");
+        navigate("/");
       } else {
         setLoading(false);
       }

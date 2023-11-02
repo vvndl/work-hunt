@@ -1,6 +1,6 @@
-$workhuntBlue1: #0072b1;
-$workhuntBlue2: #0073b1;
-$workhuntBlue3: #004c75;
+$workhuntBlue1: #057ab9;
+$workhuntBlue2: #0575b1;
+$workhuntBlue3: #014970;
 
 body {
   margin: 0;
@@ -11,15 +11,15 @@ body {
   background-color: white !important;
   height: 100vh;
   .login-wrapper-inner {
-    display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    display: flex;
   }
   .heading {
-    font-family: system-ui;
+    color: rgba(6, 6, 6, 0.9);
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.9);
+    font-family: system-ui;
   }
 
   .sub-heading {
@@ -32,15 +32,15 @@ body {
   width: 300px;
   height: 50px;
   cursor: pointer;
-  background-color: $workhuntBlue2;
-  border-radius: 30px;
-  outline: none;
   border: none;
-  font-family: system-ui;
   font-weight: 600;
   color: #ffffff;
-  font-size: 18px;
   margin-top: 20px;
+  background-color: $workhuntBlue2;
+  font-family: system-ui;
+  font-size: 18px;
+  border-radius: 30px;
+  outline: none;
 }
 
 .login-btn:hover {
@@ -49,21 +49,21 @@ body {
 
 .auth-inputs {
   display: flex;
-  flex-direction: column;
   gap: 10px;
   width: 300px;
+  flex-direction: column;
   .common-input {
+    font-size: 16px;
     height: 30px;
     padding: 10px;
+    border: 1px solid #2a2a2a;
     outline: none;
-    border: 1px solid #212121;
     border-radius: 3px;
-    font-family: system-ui;
-    font-size: 16px;
     margin: 7px 0;
+    font-family: system-ui;
   }
   .common-input:focus {
-    outline: 1px solid #8abceb;
+    outline: 1px solid #8dbeeb;
   }
   ::placeholder {
     background-color: white;
@@ -81,7 +81,7 @@ body {
   position: relative;
   outline: 0;
   border: 0;
-  color: black;
+  color: rgb(5, 4, 4);
   text-align: center;
   height: 1.5em;
   opacity: 0.5;
@@ -89,7 +89,7 @@ body {
     content: "";
     // use the linear-gradient for the fading effect
     // use a solid background color for a solid bar
-    background: linear-gradient(to right, transparent, #818078, transparent);
+    background: linear-gradient(to right, transparent, #838278, transparent);
     position: absolute;
     left: 0;
     top: 50%;
@@ -100,13 +100,13 @@ body {
     content: attr(data-content);
     position: relative;
     display: inline-block;
-    color: black;
+    color: rgb(16, 16, 16);
 
     padding: 0 0.5em;
     line-height: 1.5em;
     // this is really the only tricky part, you need to specify the background color of the container element...
-    color: #818078;
-    background-color: #fcfcfa;
+    color: #87867d;
+    background-color: #eeeeea;
   }
 }
 

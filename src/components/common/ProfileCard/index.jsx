@@ -78,16 +78,12 @@ export default function ProfileCard({ onEdit, currentUser }) {
                 ? currentUser.headline
                 : currentProfile?.headline}
             </p>
-            {(currentUser.city || currentUser.country) &&
-            (currentProfile?.city || currentProfile?.country) ? (
-              <p className="location">
-                {Object.values(currentProfile).length === 0
-                  ? `${currentUser.city}, ${currentUser.country} `
-                  : `${currentProfile?.city}, ${currentUser.country}`}
-              </p>
-            ) : (
-              <></>
-            )}
+
+            <p className="location">
+              {Object.values(currentProfile).length === 0
+                ? `${currentUser.city || ""}, ${currentUser.country || ""} `
+                : `${currentProfile?.city || ""}, ${currentUser.country || ""}`}
+            </p>
             {currentUser.website || currentProfile?.website ? (
               <a
                 className="website"

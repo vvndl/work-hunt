@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { firestore } from "../../../firebaseConfig";
-import "../../../style.scss";
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
@@ -14,7 +13,7 @@ const Chats = () => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(
-        doc(firestore, "userChats", currentUser.userID),
+        doc(firestore, "userChats", currentUser.uid),
         (doc) => {
           setChats(doc.data());
         }
@@ -25,8 +24,8 @@ const Chats = () => {
       };
     };
 
-    currentUser.userID && getChats();
-  }, [currentUser.userID]);
+    currentUser.uid && getChats();
+  }, [currentUser.uid]);
 
   const handleSelect = (u) => {
     dispatch({ type: "CHANGE_USER", payload: u });
@@ -42,7 +41,6 @@ const Chats = () => {
             key={chat[0]}
             onClick={() => handleSelect(chat[1].userInfo)}
           >
-            <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
               <span>{chat[1].userInfo.displayName}</span>
               <p>{chat[1].lastMessage?.text}</p>

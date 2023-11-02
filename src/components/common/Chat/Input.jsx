@@ -11,7 +11,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { firestore, storage } from "../../../firebaseConfig";
-// import { v4 as uuid } from "uuid";
+import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import "../../../style.scss";
 
@@ -24,21 +24,21 @@ const Input = () => {
 
   const handleSend = async () => {
     if (img) {
-      const storageRef = ref(storage, currentUser.userID); // Use currentUser.userID
+      const storageRef = ref(storage, uuid());
 
       const uploadTask = uploadBytesResumable(storageRef, img);
 
       uploadTask.on(
         (error) => {
-          // TODO: Handle Error
+          //TODO:Handle Error
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateDoc(doc(firestore, "chats", data.chatId), {
               messages: arrayUnion({
-                id: currentUser.userID, // Use currentUser.userID
+                id: uuid(),
                 text,
-                senderId: currentUser.userID,
+                senderId: currentUser.uid,
                 date: Timestamp.now(),
                 img: downloadURL,
               }),
@@ -49,22 +49,22 @@ const Input = () => {
     } else {
       await updateDoc(doc(firestore, "chats", data.chatId), {
         messages: arrayUnion({
-          id: currentUser.userID, // Use currentUser.userID
+          id: uuid(),
           text,
-          senderId: currentUser.userID,
+          senderId: currentUser.uid,
           date: Timestamp.now(),
         }),
       });
     }
 
-    await updateDoc(doc(firestore, "userChats", currentUser.userID), {
+    await updateDoc(doc(firestore, "userChats", currentUser.uid), {
       [data.chatId + ".lastMessage"]: {
         text,
       },
       [data.chatId + ".date"]: serverTimestamp(),
     });
 
-    await updateDoc(doc(firestore, "userChats", data.user.userID), {
+    await updateDoc(doc(firestore, "userChats", data.user.uid), {
       [data.chatId + ".lastMessage"]: {
         text,
       },
@@ -78,7 +78,7 @@ const Input = () => {
     <div className="input">
       <input
         type="text"
-        placeholder="Type something..."
+        placeholder="Написати що-небудь..."
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
@@ -93,7 +93,7 @@ const Input = () => {
         <label htmlFor="file">
           <AiOutlinePicture size={30} className="react-icon" />
         </label>
-        <button onClick={handleSend}>Send</button>
+        <button onClick={handleSend}>Надіслати</button>
       </div>
     </div>
   );

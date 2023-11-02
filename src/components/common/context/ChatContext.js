@@ -5,20 +5,10 @@ export const ChatContext = createContext();
 
 export const ChatContextProvider = ({ children }) => {
   const { currentUser } = useContext(AuthContext);
-
   const INITIAL_STATE = {
     chatId: "null",
     user: {},
   };
-
-  if (currentUser) {
-    // Now, you can safely access currentUser properties
-    INITIAL_STATE.user = currentUser;
-    INITIAL_STATE.chatId =
-      currentUser.userID > INITIAL_STATE.user.userID
-        ? currentUser.userID + INITIAL_STATE.user.userID
-        : INITIAL_STATE.user.userID + currentUser.userID;
-  }
 
   const chatReducer = (state, action) => {
     switch (action.type) {
@@ -26,9 +16,9 @@ export const ChatContextProvider = ({ children }) => {
         return {
           user: action.payload,
           chatId:
-            currentUser.userID > action.payload.userID
-              ? currentUser.userID + action.payload.userID
-              : action.payload.userID + currentUser.userID,
+            currentUser.uid > action.payload.uid
+              ? currentUser.uid + action.payload.uid
+              : action.payload.uid + currentUser.uid,
         };
 
       default:

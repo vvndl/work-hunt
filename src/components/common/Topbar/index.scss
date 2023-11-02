@@ -1,80 +1,83 @@
-.topbar-main {
-  width: 100%;
-  height: 70px;
-  background-color: rgba(255, 255, 255, 0.87);
-  display: flex;
-  align-items: center;
-}
-.workhunt-logo {
-  width: 65px;
-  margin-left: 20px;
-}
-.react-icons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 55%;
-  margin-left: 30px;
-}
-
-.react-icon {
-  color: #787878;
-  cursor: pointer;
-}
-
-.react-icon:hover {
-  color: black;
-}
-
-.user-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  right: 30px;
-  cursor: pointer;
-}
-
-.popup-position {
-  position: absolute;
-  right: 10px;
-  top: 65px;
-  z-index: 99;
-}
-
 .search-results {
-  position: absolute;
-  left: 100px;
-  top: 60px;
-  width: 240px;
-  height: auto;
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid #bbbbbb;
-  z-index: 100;
-
-  .search-inner {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .name {
-      font-family: system-ui;
-      font-size: 18px;
-    }
-  }
-
   .search-inner:hover {
     background-color: #bbbbbb;
   }
+
+  .search-inner {
+    .name {
+      font-size: 18px;
+      font-family: system-ui;
+    }
+
+    img {
+      object-fit: cover;
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+    }
+
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+  }
+
+  z-index: 100;
+  border: 1px solid #bbbbbb;
+  border-radius: 10px;
+  background-color: white;
+  height: auto;
+  width: 240px;
+  top: 60px;
+  left: 100px;
+  position: absolute;
+}
+
+.popup-position {
+  z-index: 99;
+  top: 65px;
+  right: 10px;
+  position: absolute;
+}
+
+.user-logo {
+  cursor: pointer;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  right: 30px;
+}
+
+.react-icon:hover {
+  color: #007bff;
+}
+
+.react-icon {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.react-icons {
+  margin-left: 30px;
+  width: 55%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.workhunt-logo {
+  margin-left: 20px;
+  width: 65px;
+}
+
+.topbar-main {
+  height: 70px;
+  width: 100%;
+  background-color: #001f3f;
+  display: flex;
+  align-items: center;
 }

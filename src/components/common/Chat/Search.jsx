@@ -12,8 +12,6 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../../../firebaseConfig";
 import { AuthContext } from "../context/AuthContext";
-import "../../../style.scss";
-
 const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
@@ -44,9 +42,9 @@ const Search = () => {
   const handleSelect = async () => {
     //check whether the group(chats in firestore) exists, if not create
     const combinedId =
-      currentUser.userID > user.userID
-        ? currentUser.userID + user.userID
-        : user.userID + currentUser.userID;
+      currentUser.uid > user.uid
+        ? currentUser.uid + user.uid
+        : user.uid + currentUser.uid;
     try {
       const res = await getDoc(doc(firestore, "chats", combinedId));
 
@@ -55,20 +53,18 @@ const Search = () => {
         await setDoc(doc(firestore, "chats", combinedId), { messages: [] });
 
         //create user chats
-        await updateDoc(doc(firestore, "userChats", currentUser.userID), {
+        await updateDoc(doc(firestore, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
-            userID: user.userID,
+            uid: user.uid,
             displayName: user.displayName,
-            photoURL: user.photoURL,
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
 
-        await updateDoc(doc(firestore, "userChats", user.userID), {
+        await updateDoc(doc(firestore, "userChats", user.uid), {
           [combinedId + ".userInfo"]: {
-            userID: currentUser.userID,
+            uid: currentUser.uid,
             displayName: currentUser.displayName,
-            photoURL: currentUser.photoURL,
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
@@ -83,7 +79,7 @@ const Search = () => {
       <div className="searchForm">
         <input
           type="text"
-          placeholder="Find a user"
+          placeholder="Знайти користувача"
           onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
           value={username}
@@ -92,7 +88,6 @@ const Search = () => {
       {err && <span>User not found!</span>}
       {user && (
         <div className="userChat" onClick={handleSelect}>
-          <img src={user.photoURL} alt="" />
           <div className="userChatInfo">
             <span>{user.displayName}</span>
           </div>

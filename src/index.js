@@ -11,12 +11,12 @@ import { AuthContextProvider } from "./components/common/context/AuthContext";
 import { ChatContextProvider } from "./components/common/context/ChatContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <AuthContextProvider>
-    <ChatContextProvider>
-      <React.StrictMode>
+  <React.StrictMode>
+    <AuthContextProvider>
+      <ChatContextProvider>
         <RouterProvider router={router} />
         <ToastContainer />
-      </React.StrictMode>
-    </ChatContextProvider>
-  </AuthContextProvider>
+      </ChatContextProvider>
+    </AuthContextProvider>
+  </React.StrictMode>
 );

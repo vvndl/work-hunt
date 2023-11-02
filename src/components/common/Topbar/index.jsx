@@ -6,10 +6,10 @@ import {
   AiOutlineUserSwitch,
   AiOutlineSearch,
   AiOutlineMessage,
-  AiOutlineBell,
+  // AiOutlineBell,
 } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { BsBriefcase } from "react-icons/bs";
+// import { BsBriefcase } from "react-icons/bs";
 import { getAllUsers } from "../../../api/FirestoreAPI";
 import ProfilePopup from "../ProfilePopup";
 import "./index.scss";
@@ -97,13 +97,13 @@ export default function Topbar({ currentUser }) {
             className="react-icon"
             onClick={() => goToRoute("/connections")}
           />
-          <BsBriefcase size={30} className="react-icon" />
+          {/* <BsBriefcase size={30} className="react-icon" /> */}
           <AiOutlineMessage
             size={30}
             className="react-icon"
             onClick={() => goToRoute("/message")}
           />
-          <AiOutlineBell size={30} className="react-icon" />
+          {/* <AiOutlineBell size={30} className="react-icon" /> */}
         </div>
       )}
       <img

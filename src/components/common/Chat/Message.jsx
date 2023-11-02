@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { ChatContext } from "../context/ChatContext";
+// import { ChatContext } from "../context/ChatContext";
 import "../../../style.scss";
 
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
-  const { data } = useContext(ChatContext);
+  // const { data } = useContext(ChatContext);
 
   const ref = useRef();
 
@@ -16,20 +16,10 @@ const Message = ({ message }) => {
   return (
     <div
       ref={ref}
-      className={`message ${
-        message.senderId === currentUser.userID && "owner"
-      }`}
+      className={`message ${message.senderId === currentUser.uid && "owner"}`}
     >
       <div className="messageInfo">
-        <img
-          src={
-            message.senderId === currentUser.userID
-              ? currentUser.photoURL
-              : data.user.photoURL
-          }
-          alt=""
-        />
-        <span>just now</span>
+        <span>Щойно</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>

@@ -14,95 +14,20 @@
   }
 }
 
-.formContainer {
-  background-color: #a7bcff;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .formWrapper {
-    background-color: white;
-    padding: 20px 60px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-
-    .logo {
-      color: #5d5b8d;
-      font-weight: bold;
-      font-size: 24px;
-    }
-
-    .title {
-      color: #5d5b8d;
-      font-size: 12px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-
-      input {
-        padding: 15px;
-        border: none;
-        width: 250px;
-        border-bottom: 1px solid #a7bcff;
-        &::placeholder {
-          color: rgb(175, 175, 175);
-        }
-      }
-
-      button {
-        background-color: #7b96ec;
-        color: white;
-        padding: 10px;
-        font-weight: bold;
-        border: none;
-        cursor: pointer;
-      }
-
-      label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #8da4f1;
-        font-size: 12px;
-        cursor: pointer;
-
-        img {
-          width: 32px;
-        }
-      }
-    }
-    p {
-      color: #5d5b8d;
-      font-size: 12px;
-      margin-top: 10px;
-    }
-  }
-}
-
 .home {
-  background-color: #a7bcff;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #dfdfdf;
 
   .container {
-    border: 1px solid white;
-    border-radius: 10px;
-    width: 65%;
-    height: 80%;
     display: flex;
     overflow: hidden;
-    @include tablet {
-      width: 90%;
-    }
+    border-radius: 10px;
+    border: 1px solid white;
+    width: 80%;
+    height: 90%;
 
     .sidebar {
       flex: 1;
@@ -110,11 +35,10 @@
       position: relative;
 
       .navbar {
-        display: flex;
-        align-items: center;
         background-color: #2f2d52;
         height: 50px;
         padding: 10px;
+        display: flex;
         justify-content: space-between;
         color: #ddddf7;
 
@@ -130,9 +54,9 @@
           gap: 10px;
 
           img {
-            background-color: #ddddf7;
             height: 24px;
             width: 24px;
+            background-color: #ddddf7;
             border-radius: 50%;
             object-fit: cover;
           }
@@ -143,6 +67,7 @@
             font-size: 10px;
             border: none;
             cursor: pointer;
+
             @include tablet {
               position: absolute;
               bottom: 10px;
@@ -150,9 +75,8 @@
           }
         }
       }
-      .search {
-        border-bottom: 1px solid gray;
 
+      .search {
         .searchForm {
           padding: 10px;
 
@@ -167,6 +91,8 @@
             }
           }
         }
+
+        border-bottom: 1px solid gray;
       }
 
       .userChat {
@@ -200,6 +126,7 @@
         }
       }
     }
+
     .chat {
       flex: 2;
 
@@ -319,6 +246,79 @@
           }
         }
       }
+    }
+  }
+}
+
+.formContainer {
+  height: 100vh;
+  background-color: #ebebed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formWrapper {
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .logo {
+      font-weight: bold;
+      color: #5d5b8d;
+      font-size: 24px;
+    }
+
+    .title {
+      font-size: 12px;
+      color: #5d5b8d;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        border: none;
+        padding: 15px;
+        width: 250px;
+        border-bottom: 1px solid #a7bcff;
+        &::placeholder {
+          color: rgb(175, 175, 175);
+        }
+      }
+
+      button {
+        color: white;
+        background-color: #7b96ec;
+        padding: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        color: #8da4f1;
+        font-size: 12px;
+
+        img {
+          width: 32px;
+        }
+      }
+    }
+
+    p {
+      font-size: 12px;
+      color: #5d5b8d;
+      margin-top: 10px;
     }
   }
 }
