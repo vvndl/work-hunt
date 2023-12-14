@@ -81,3 +81,20 @@
   display: flex;
   align-items: center;
 }
+
+.react-btn {
+  color: white;
+  background-color: #001f3f;
+  border: 1px solid white;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
+.react-btn:hover {
+  background-color: #007bff;
+}
+
+.react-btn:active {
+  background-color: #000a1a;
+}

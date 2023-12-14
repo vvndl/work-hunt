@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { editProfile } from "../../../api/FirestoreAPI";
 import { AiOutlineClose } from "react-icons/ai";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 export default function ProfileEdit({ onEdit, currentUser }) {
   const [editInputs, seteditInputs] = useState(currentUser);
@@ -15,6 +16,7 @@ export default function ProfileEdit({ onEdit, currentUser }) {
     await editProfile(currentUser?.id, editInputs);
     await onEdit();
   };
+  const { t } = useTranslation();
   return (
     <div className="profile-card">
       <div className="edit-btn">
@@ -22,83 +24,83 @@ export default function ProfileEdit({ onEdit, currentUser }) {
       </div>
 
       <div className="profile-edit-inputs">
-        <label>Ім'я</label>
+        <label>{t("name")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Ім'я"
+          placeholder={t("name")}
           name="name"
           value={editInputs.name}
         />
-        <label>Заголовок</label>
+        <label>{t("headline")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Заголовок"
+          placeholder={t("headline")}
           name="headline"
           value={editInputs.headline}
         />
-        <label>Країна</label>
+        <label>{t("country")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Країна"
+          placeholder={t("country")}
           name="country"
           value={editInputs.country}
         />
-        <label>Місто</label>
+        <label>{t("city")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Місто"
+          placeholder={t("city")}
           name="city"
           value={editInputs.city}
         />
-        <label>Місце роботи</label>
+        <label>{t("company")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Місце роботи"
+          placeholder={t("company")}
           name="company"
           value={editInputs.company}
         />
-        <label>Освіта</label>
+        <label>{t("college")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Освіта"
+          placeholder={t("college")}
           name="college"
           value={editInputs.college}
         />
-        <label>Веб-сторінка</label>
+        <label>{t("website")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Веб-сторінка"
+          placeholder={t("website")}
           name="website"
           value={editInputs.website}
         />
-        <label>Про</label>
+        <label>{t("aboutMe")}</label>
         <textarea
-          placeholder="Про себе"
+          placeholder={t("aboutMe")}
           className="common-textArea"
           onChange={getInput}
           rows={5}
           name="aboutMe"
           value={editInputs.aboutMe}
         />
-        <label>Навички</label>
+        <label>{t("skills")}</label>
         <input
           onChange={getInput}
           className="common-input"
-          placeholder="Навички"
+          placeholder={t("skills")}
           name="skills"
           value={editInputs.skills}
         />
       </div>
       <div className="save-container">
         <button className="save-btn" onClick={updateProfileData}>
-          Зберегти
+          {t("save")}
         </button>
       </div>
     </div>

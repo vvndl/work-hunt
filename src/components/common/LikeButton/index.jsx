@@ -9,6 +9,7 @@ import { getCurrentTimeStamp } from "../../../helpers/useMoment";
 import "./index.scss";
 import { AiOutlineComment } from "react-icons/ai";
 import { BsFillHandThumbsUpFill, BsHandThumbsUp } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 export default function LikeButton({ userId, postId, currentUser }) {
   const [likesCount, setLikesCount] = useState(0);
@@ -16,6 +17,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
   const [liked, setLiked] = useState(false);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const { t } = useTranslation();
   const handleLike = () => {
     likePost(userId, postId, liked);
   };
@@ -33,7 +35,9 @@ export default function LikeButton({ userId, postId, currentUser }) {
   }, [userId, postId]);
   return (
     <div className="like-container">
-      <p>{likesCount} Людям подобається цей пост</p>
+      <p>
+        {likesCount} {t("liked")}
+      </p>
       <div className="hr-line">
         <hr />
       </div>
@@ -45,7 +49,7 @@ export default function LikeButton({ userId, postId, currentUser }) {
             <BsHandThumbsUp size={30} />
           )}
 
-          <p className={liked ? "blue" : "black"}>Лайк</p>
+          <p className={liked ? "blue" : "black"}>{t("like")}</p>
         </div>
         <div
           className="likes-comment-inner"
@@ -58,20 +62,20 @@ export default function LikeButton({ userId, postId, currentUser }) {
             />
           }
 
-          <p className={showCommentBox ? "blue" : "black"}>Коментарі</p>
+          <p className={showCommentBox ? "blue" : "black"}>{t("comment")}</p>
         </div>
       </div>
       {showCommentBox ? (
         <>
           <input
             onChange={getComment}
-            placeholder="Додати коментар"
+            placeholder={t("addcomment")}
             className="comment-input"
             name="comment"
             value={comment}
           />
           <button className="add-comment-btn" onClick={addComment}>
-            Додати коментар
+            {t("addcomment")}
           </button>
 
           {comments.length > 0 ? (

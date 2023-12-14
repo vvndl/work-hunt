@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../../../firebaseConfig";
 import { AuthContext } from "../context/AuthContext";
+import { useTranslation } from "react-i18next";
 const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState(null);
@@ -74,12 +75,13 @@ const Search = () => {
     setUser(null);
     setUsername("");
   };
+  const { t } = useTranslation();
   return (
     <div className="search">
       <div className="searchForm">
         <input
           type="text"
-          placeholder="Знайти користувача"
+          placeholder={t("find")}
           onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
           value={username}

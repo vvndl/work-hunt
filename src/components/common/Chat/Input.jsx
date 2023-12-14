@@ -14,6 +14,7 @@ import { firestore, storage } from "../../../firebaseConfig";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import "../../../style.scss";
+import { useTranslation } from "react-i18next";
 
 const Input = () => {
   const [text, setText] = useState("");
@@ -74,11 +75,12 @@ const Input = () => {
     setText("");
     setImg(null);
   };
+  const { t } = useTranslation();
   return (
     <div className="input">
       <input
         type="text"
-        placeholder="Написати що-небудь..."
+        placeholder={t("wsome")}
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
@@ -93,7 +95,7 @@ const Input = () => {
         <label htmlFor="file">
           <AiOutlinePicture size={30} className="react-icon" />
         </label>
-        <button onClick={handleSend}>Надіслати</button>
+        <button onClick={handleSend}>{t("send")}</button>
       </div>
     </div>
   );

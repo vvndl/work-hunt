@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllUsers, addConnection } from "../../api/FirestoreAPI";
 import ConnectedUsers from "../common/ConnectedUsers";
 import "../../Sass/ConnectionsComponent.scss";
+import { useTranslation } from "react-i18next";
 
 export default function ConnectionsComponent({ currentUser }) {
   const [users, setUsers] = useState([]);
@@ -11,6 +12,7 @@ export default function ConnectionsComponent({ currentUser }) {
   useEffect(() => {
     getAllUsers(setUsers);
   }, []);
+  const { t } = useTranslation();
 
   return users.length > 1 ? (
     <div className="connections-main">
@@ -27,6 +29,6 @@ export default function ConnectionsComponent({ currentUser }) {
       })}
     </div>
   ) : (
-    <div className="connections-main">Немає підключень для додавання!</div>
+    <div className="connections-main">{t("nocon")}</div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes";
@@ -9,14 +9,17 @@ import "./index.scss";
 import "./style.scss";
 import { AuthContextProvider } from "./components/common/context/AuthContext";
 import { ChatContextProvider } from "./components/common/context/ChatContext";
+import "./18n";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <ChatContextProvider>
-        <RouterProvider router={router} />
-        <ToastContainer />
-      </ChatContextProvider>
-    </AuthContextProvider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthContextProvider>
+        <ChatContextProvider>
+          <RouterProvider router={router} />
+          <ToastContainer />
+        </ChatContextProvider>
+      </AuthContextProvider>
+    </Suspense>
   </React.StrictMode>
 );

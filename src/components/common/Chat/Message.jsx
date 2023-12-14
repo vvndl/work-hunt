@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
 // import { ChatContext } from "../context/ChatContext";
 import "../../../style.scss";
+import { useTranslation } from "react-i18next";
 
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const Message = ({ message }) => {
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
+  const { t } = useTranslation();
 
   return (
     <div
@@ -19,7 +21,7 @@ const Message = ({ message }) => {
       className={`message ${message.senderId === currentUser.uid && "owner"}`}
     >
       <div className="messageInfo">
-        <span>Щойно</span>
+        <span>{t("just")}</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>

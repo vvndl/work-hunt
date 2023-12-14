@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import FileUploadModal from "../FileUploadModal";
 import { uploadImage as uploadImageAPI } from "../../../api/ImageUpload";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 export default function ProfileCard({ onEdit, currentUser }) {
   let location = useLocation();
@@ -14,6 +15,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
   const [currentImage, setCurrentImage] = useState({});
   const [progress, setProgress] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const { t } = useTranslation();
   const getImage = (event) => {
     setCurrentImage(event.target.files[0]);
   };
@@ -125,7 +127,7 @@ export default function ProfileCard({ onEdit, currentUser }) {
 
         {currentUser.skills || currentProfile?.skills ? (
           <p className="skills">
-            <span className="skill-label">Навички</span>:&nbsp;
+            <span className="skill-label">{t("skills")}</span>:&nbsp;
             {Object.values(currentProfile).length === 0
               ? currentUser.skills
               : currentProfile?.skills}

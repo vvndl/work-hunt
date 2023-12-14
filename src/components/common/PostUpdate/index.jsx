@@ -6,6 +6,7 @@ import { uploadPostImage } from "../../../api/ImageUpload";
 import { getUniqueID } from "../../../helpers/getUniqueld";
 import PostsCard from "../PostsCard";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 export default function PostStatus({ currentUser }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -14,6 +15,7 @@ export default function PostStatus({ currentUser }) {
   const [currentPost, setCurrentPost] = useState({});
   const [isEdit, setIsEdit] = useState(false);
   const [postImage, setPostImage] = useState("");
+  const { t } = useTranslation();
 
   const sendStatus = async () => {
     let object = {
@@ -67,7 +69,7 @@ export default function PostStatus({ currentUser }) {
             setIsEdit(false);
           }}
         >
-          Створіть публікацію
+          {t("createp")}
         </button>
       </div>
 

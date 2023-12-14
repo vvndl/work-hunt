@@ -3,6 +3,7 @@ import { Button, Modal, Progress } from "antd";
 import { AiOutlinePicture } from "react-icons/ai";
 import ReactQuill from "react-quill";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 const ModalComponent = ({
   modalOpen,
@@ -19,10 +20,11 @@ const ModalComponent = ({
   setCurrentPost,
 }) => {
   const [progress, setProgress] = useState(0);
+  const { t } = useTranslation();
   return (
     <>
       <Modal
-        title="Створіть публікацію"
+        title={t("createp")}
         centered
         open={modalOpen}
         onOk={() => {
@@ -44,7 +46,7 @@ const ModalComponent = ({
             type="primary"
             disabled={status.length > 0 ? false : true}
           >
-            {isEdit ? "Оновити" : "Пост"}
+            {isEdit ? t("update") : t("post")}
           </Button>,
         ]}
       >
@@ -53,7 +55,7 @@ const ModalComponent = ({
             className="modal-input"
             theme="snow"
             value={status}
-            placeholder="Поділіться чимось корисним..."
+            placeholder={t("addcomment")}
             onChange={setStatus}
           />
           {progress === 0 || progress === 100 ? (
